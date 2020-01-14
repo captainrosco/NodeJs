@@ -6,10 +6,14 @@ const server = http.createServer((req, res) => {
   if (url === "/") {
     res.write("<html>");
     res.write("<head><title>The Server Lives!</title></head>");
-    res.write("<body><h1>Server Lives!</h1></body>");
+    res.write(
+      '<body><form action="/message" method="POST"><input type="text"><button>Send</button></form></body>'
+    );
     res.write("</html>");
-    res.end();
+    return res.end();
   }
+  res.setHeader("Content-type", "text/html");
+  res.write("<html><h1>Hello!</h1></html>");
 });
 
 server.listen(5000);
