@@ -6,8 +6,12 @@ const app = express();
 //Middleware
 app.use((req, res, next) => {
   console.log("Here");
+  next();
 });
 
-const server = http.createServer();
+app.use((req, res, next) => {
+  console.log("Here");
+  res.send(`<h1>Hello from express</h1>`);
+});
 
-server.listen(5000);
+app.listen(5000);
