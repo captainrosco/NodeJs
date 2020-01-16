@@ -1,7 +1,13 @@
 const http = require("http");
-const fs = require("fs");
-const routes = require("./routes");
+const express = require("express");
 
-const server = http.createServer(routes);
+const app = express();
+
+//Middleware
+app.use((req, res, next) => {
+  console.log("Here");
+});
+
+const server = http.createServer();
 
 server.listen(5000);
