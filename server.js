@@ -8,7 +8,8 @@ const shopRoutes = require(`./routes/shop`);
 const app = express();
 
 //config
-aap.set("view engine", "pug");
+app.set("view engine", "pug");
+app.set("views", "views");
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
